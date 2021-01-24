@@ -45,6 +45,10 @@ if WinActive("ahk_class Qt5QWindowOwnDCIcon") {
 	PixelSearch, MonsterX, MonsterY, Battle_List_X1, Battle_List_Y1, Battle_List_X2, Battle_List_Y2, 0x000000, , Fast RGB	;VERIFICA UM PIXEL PRETO
 	if (ErrorLevel = 0)	;SE ENCONTRAR
 	{
+		PixelSearch, AttackX, AttackY, Battle_List_X1, Battle_List_Y1, Battle_List_X2, Battle_List_Y2, 0xFF0000,, Fast RGB	;VERIFICA UM PIXEL ROSA (ATAQUE COM O MOUSE EM CIMA)
+		if (ErrorLevel = 0) {
+			return	;retorne ao inicio
+		}
 		PixelSearch, AttackX, AttackY, Battle_List_X1, Battle_List_Y1, Battle_List_X2, Battle_List_Y2, 0xFF0000, , Fast RGB	;VERIFICA UM PIXEL VERMELHO
 		if (ErrorLevel = 1) ;SE NÃO ENCONTRAR
 		{
